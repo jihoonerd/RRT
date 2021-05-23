@@ -31,4 +31,8 @@ Example
 $ python main.py --map map.png --stepsize 40
 ```
 
-When scren pops up, your first clicked position will be a starting point, and second clicked position will be a target point. Path finding process will be automatically started.
+When scren pops up, your first clicked position will be a starting point, and second clicked position will be a target point. Path finding process will launch automatically.
+
+## TODO
+
+* RRT*
