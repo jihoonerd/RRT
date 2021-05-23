@@ -18,6 +18,8 @@ def rrt_solver(map, start, target, stepsize):
 
     done = False
     i = 0
+    cv2.imshow("Path Finder", world_map)
+    cv2.waitKey(1000)
     while not done:
         new_x, new_y = np.random.randint(0, width), np.random.randint(0, height)
         new_node = Node(new_x, new_y, None)
