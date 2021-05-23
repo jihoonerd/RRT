@@ -1,6 +1,8 @@
 # RRT
 
-## Vanilla RRT
+Implementation of Rapidly-exploring Random Tree(RRT)
+
+## Vanilla RRT Demo
 
 |Path Finding|Full Trajectory|
 |---|---|
