@@ -63,10 +63,10 @@ def check_collision(collision_ck_map, nearest_node, one_step_target):
             return True
     return False
 
-def check_arrival(one_step_target, target_node):
+def check_arrival(one_step_target, target_node, stepsize):
     vec_displ = np.array([target_node.x - one_step_target.x, target_node.y - one_step_target.y])
     distance = np.linalg.norm(vec_displ)
-    if distance <= 25:
+    if distance <= stepsize:
         return True
     return False
 

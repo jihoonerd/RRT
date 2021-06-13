@@ -41,7 +41,7 @@ def rrt_star_solver(map, start, target, stepsize, radius):
         next_node.parent_node = min_cost_node
         next_node.cost = min_cost_node.cost + get_distance(min_cost_node, next_node)
         nodes.append(next_node)
-        
+
         cv2.circle(world_map, (int(next_node.x),int(next_node.y)), 2,(42,42,165), thickness=3, lineType=8)
         cv2.line(world_map, (int(min_cost_node.x),int(min_cost_node.y)), (int(next_node.x),int(next_node.y)), (0,255,0), thickness=1, lineType=8)
        
@@ -57,7 +57,7 @@ def rrt_star_solver(map, start, target, stepsize, radius):
         cv2.imwrite(f"images/{i:05d}.jpg", world_map)
         cv2.waitKey(1)
 
-        is_arrived = check_arrival(next_node, target_node)
+        is_arrived = check_arrival(next_node, target_node, stepsize)
         i += 1
         if is_arrived:
             cur_node = next_node
@@ -117,7 +117,7 @@ def rrt_solver(map, start, target, stepsize):
         cv2.imwrite(f"images/{i:05d}.jpg", world_map)
         cv2.waitKey(1)
 
-        is_arrived = check_arrival(one_step_target, target_node)
+        is_arrived = check_arrival(one_step_target, target_node, stepsize)
         i += 1
         if is_arrived:
             cur_node = one_step_target
