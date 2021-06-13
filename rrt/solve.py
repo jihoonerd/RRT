@@ -3,7 +3,7 @@ import numpy as np
 from rrt.utils import find_nearest_node, check_collision, get_step_point, check_arrival, make_gif, \
     find_neighbors, get_distance, Node
 
-def rrt_star_solver(map, start, target, stepsize):
+def rrt_star_solver(map, start, target, stepsize, radius):
     collision_ck_map = cv2.imread(map, cv2.IMREAD_GRAYSCALE)
     world_map = cv2.imread(map, cv2.IMREAD_COLOR)
 
@@ -30,7 +30,8 @@ def rrt_star_solver(map, start, target, stepsize):
         if is_collision:
             continue
         next_node = Node(one_step_target.x, one_step_target.y, nearest_node, None)
-        neighbors = find_neighbors(nodes, next_node, stepsize)
+
+        neighbors = find_neighbors(nodes, next_node, radius)
 
         near_distance = []
         for near_node in neighbors:
@@ -40,8 +41,10 @@ def rrt_star_solver(map, start, target, stepsize):
         next_node.parent_node = min_cost_node
         next_node.cost = min_cost_node.cost + get_distance(min_cost_node, next_node)
         nodes.append(next_node)
+        
         cv2.circle(world_map, (int(next_node.x),int(next_node.y)), 2,(42,42,165), thickness=3, lineType=8)
         cv2.line(world_map, (int(min_cost_node.x),int(min_cost_node.y)), (int(next_node.x),int(next_node.y)), (0,255,0), thickness=1, lineType=8)
+       
         # Rewiring
         for near_node in neighbors:
             if next_node.cost + get_distance(near_node, next_node) < near_node.cost:

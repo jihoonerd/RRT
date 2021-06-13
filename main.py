@@ -26,6 +26,7 @@ if __name__ == '__main__':
     parser.add_argument('--map', type=str, default='map.png', help='path to map file')
     parser.add_argument('--stepsize', type=int, default=30, help='step size')
     parser.add_argument('--alg', type=str, default='rrtstar', help='rrtstar or rrt')
+    parser.add_argument('--radius', type=float, default=35, help='radius for rrtstar')
     args = parser.parse_args()
 
     if os.path.exists('images'):
@@ -55,6 +56,6 @@ if __name__ == '__main__':
     target = (coordinates[2], coordinates[3])
 
     if args.alg == 'rrtstar':
-        rrt_star_solver(map, start, target, stepsize)
+        rrt_star_solver(map, start, target, stepsize, args.radius)
     else:
         rrt_solver(map, start, target, stepsize)

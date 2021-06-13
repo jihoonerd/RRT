@@ -1,12 +1,14 @@
 # RRT
 
-Implementation of Rapidly-exploring Random Tree(RRT)
+Implementation of Rapidly-exploring Random Tree(RRT) and RRT Star(RRT*)
 
-## Vanilla RRT Demo
+## Vanilla RRT 
 
-|Path Finding|Full Trajectory|
-|---|---|
-|![RRT_GIF](asset/rrt.gif)|![RRT_PATH](asset/rrt_path.jpg)|
+![RRT_PATH](asset/rrt.jpg)
+
+## RRT*
+
+![RRT_STAR_PATH](asset/rrt_star.jpg)
 
 ## Installation
 

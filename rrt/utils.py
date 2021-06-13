@@ -48,8 +48,8 @@ def get_step_point(nearest_node, new_node, stepsize):
 
 def check_collision(collision_ck_map, nearest_node, one_step_target):
 
-    x_path = np.linspace(nearest_node.x, one_step_target.x, 100)
-    y_path = np.linspace(nearest_node.y, one_step_target.y, 100)
+    x_path = np.linspace(nearest_node.x, one_step_target.x, 200)
+    y_path = np.linspace(nearest_node.y, one_step_target.y, 200)
 
     height, width = collision_ck_map.shape
     
